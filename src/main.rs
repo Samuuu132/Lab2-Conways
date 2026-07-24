@@ -61,11 +61,11 @@ fn main() {
     game.set_cells(60, 85, patterns::GLIDER);
 
     while !window.window_should_close() {
+        game.step();
+
         render(&mut framebuffer, &game);
 
         framebuffer.swap_buffers(&mut window, &raylib_thread);
-
-        game.step();
 
         thread::sleep(Duration::from_millis(100));
     }

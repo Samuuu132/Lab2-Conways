@@ -46,15 +46,8 @@ impl GameOfLife {
                     continue;
                 }
 
-                let nx = x as i32 + dx;
-                let ny = y as i32 + dy;
-
-                if nx < 0 || ny < 0 {
-                    continue;
-                }
-
-                let nx = nx as usize;
-                let ny = ny as usize;
+                let nx = (x as i32 + dx).rem_euclid(self.width as i32) as usize;
+                let ny = (y as i32 + dy).rem_euclid(self.height as i32) as usize;
 
                 if self.is_alive(nx, ny) {
                     count += 1;
