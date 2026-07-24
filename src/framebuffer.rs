@@ -1,5 +1,6 @@
 use raylib::prelude::*;
 
+#[allow(dead_code)]
 pub struct Framebuffer {
     pub width: u32,
     pub height: u32,
