@@ -12,7 +12,7 @@ fn render(framebuffer: &mut Framebuffer, game: &GameOfLife) {
     for y in 0..game.height {
         for x in 0..game.width {
             if game.is_alive(x, y) {
-                framebuffer.set_current_color(Color::WHITE);
+                framebuffer.set_current_color(Color::new(0, 255, 70, 255));
             } else {
                 framebuffer.set_current_color(Color::BLACK);
             }
