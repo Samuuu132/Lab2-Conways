@@ -31,6 +31,12 @@ impl GameOfLife {
         }
     }
 
+    pub fn set_cells(&mut self, origin_x: usize, origin_y: usize, cells: &[(usize, usize)]) {
+        for (dx, dy) in cells {
+            self.set_alive(origin_x + dx, origin_y + dy, true);
+        }
+    }
+
     fn count_alive_neighbors(&self, x: usize, y: usize) -> u8 {
         let mut count = 0;
 

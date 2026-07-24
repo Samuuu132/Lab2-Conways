@@ -1,5 +1,6 @@
 mod framebuffer;
 mod game_of_life;
+mod patterns;
 
 use framebuffer::Framebuffer;
 use game_of_life::GameOfLife;
@@ -38,9 +39,26 @@ fn main() {
 
     let mut game = GameOfLife::new(framebuffer_width as usize, framebuffer_height as usize);
 
-    game.set_alive(10, 10, true);
-    game.set_alive(11, 10, true);
-    game.set_alive(12, 10, true);
+    game.set_cells(5, 5, patterns::GLIDER);
+    game.set_cells(20, 5, patterns::LWSS);
+    game.set_cells(40, 5, patterns::PULSAR);
+    game.set_cells(60, 5, patterns::BLOCK);
+    game.set_cells(70, 5, patterns::BEEHIVE);
+
+    game.set_cells(5, 30, patterns::BLINKER);
+    game.set_cells(15, 30, patterns::TOAD);
+    game.set_cells(25, 30, patterns::BEACON);
+    game.set_cells(40, 30, patterns::LOAF);
+    game.set_cells(55, 30, patterns::BOAT);
+
+    game.set_cells(10, 60, patterns::GLIDER);
+    game.set_cells(30, 60, patterns::LWSS);
+    game.set_cells(50, 60, patterns::PULSAR);
+    game.set_cells(75, 60, patterns::BLINKER);
+
+    game.set_cells(15, 85, patterns::TOAD);
+    game.set_cells(35, 85, patterns::BEACON);
+    game.set_cells(60, 85, patterns::GLIDER);
 
     while !window.window_should_close() {
         render(&mut framebuffer, &game);
